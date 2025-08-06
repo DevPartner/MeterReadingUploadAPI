@@ -33,7 +33,7 @@ export class MeterReadingItemsClient implements IMeterReadingItemsClient {
     }
 
     createMeterReadingItems(file: FileParameter | null | undefined): Observable<UploadResult> {
-        let url_ = this.baseUrl + "/api/MeterReadingItems/meter-reading-uploads";
+        let url_ = this.baseUrl + "/meter-reading-uploads";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = new FormData();

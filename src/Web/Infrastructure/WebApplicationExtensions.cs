@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using MeterReadingUploadAPI.Web.Endpoints;
+using Microsoft.AspNetCore.Builder;
 
 namespace MeterReadingUploadAPI.Web.Infrastructure;
 
@@ -7,6 +9,11 @@ public static class WebApplicationExtensions
     private static RouteGroupBuilder MapGroup(this WebApplication app, EndpointGroupBase group)
     {
         var groupName = group.GroupName ?? group.GetType().Name;
+        
+        if (string.IsNullOrWhiteSpace(groupName))
+            return app.MapGroup("/")
+                .WithGroupName(group.GetType().Name)
+                .WithTags(group.GetType().Name);
 
         return app
             .MapGroup($"/api/{groupName}")

@@ -5,6 +5,8 @@ namespace MeterReadingUploadAPI.Web.Endpoints;
 
 public class MeterReadingItems : EndpointGroupBase
 {
+    public override string? GroupName => "";
+
     public override void Map(RouteGroupBuilder groupBuilder)
     {
         groupBuilder.MapPost(CreateMeterReadingItems, "/meter-reading-uploads").DisableAntiforgery()/*.RequireAuthorization()*/;
