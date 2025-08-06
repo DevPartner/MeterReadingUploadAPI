@@ -44,16 +44,14 @@ public class CreateMeterReadingItemsCommandHandler : IRequestHandler<CreateMeter
             // Skip header line
             if (line ==null || (lineNumber == 1 && line.StartsWith("AccountId"))) continue;
 
-            
-
             var parts = line?.Split(',');
-            if (parts?.Length != 3)
+            if (parts?.Length < 3)
             {
                 result.Errors.Add(new UploadError { LineNumber = lineNumber, LineContent = line!, ErrorMessage = "Invalid format" });
                 continue;
             }
 
-            if (!int.TryParse(parts[0], out int accountId) ||
+            if (!int.TryParse(parts![0], out int accountId) ||
                 !DateTime.TryParse(parts[1], out var readingTime) ||
                 string.IsNullOrWhiteSpace(parts[2]) ||
                 !Regex.IsMatch(parts[2], @"^\d{5}$"))

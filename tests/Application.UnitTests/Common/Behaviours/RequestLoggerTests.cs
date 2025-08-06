@@ -1,6 +1,5 @@
 ﻿using MeterReadingUploadAPI.Application.Common.Behaviours;
 using MeterReadingUploadAPI.Application.Common.Interfaces;
-using MeterReadingUploadAPI.Application.TodoItems.Commands.CreateTodoItem;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;

@@ -6,6 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Common\Behaviours\RequestLoggerTests.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Azure.Identity" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" />
         <PackageReference Include="nunit" />
@@ -25,6 +29,10 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\Application\Application.csproj" />
         <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Common\Behaviours\" />
     </ItemGroup>
 
 </Project>

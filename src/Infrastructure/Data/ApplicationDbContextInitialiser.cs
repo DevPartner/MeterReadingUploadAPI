@@ -88,25 +88,6 @@ public class ApplicationDbContextInitialiser
         }
 
         // Default data
-        // Seed, if necessary
-        if (!_context.TodoLists.Any())
-        {
-            _context.TodoLists.Add(new TodoList
-            {
-                Title = "Todo List",
-                Items =
-                {
-                    new TodoItem { Title = "Make a todo list 📃" },
-                    new TodoItem { Title = "Check off the first item ✅" },
-                    new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
-                    new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
-                }
-            });
-
-            await _context.SaveChangesAsync();
-        }
-
-        // Default data
         if (!_context.Accounts.Any())
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
@@ -145,6 +126,8 @@ public class ApplicationDbContextInitialiser
                     new Account { Id = 6776, FirstName = "Laura", LastName = "Test" },
                     new Account { Id = 8766, FirstName = "Sally", LastName = "Test" }
                 );
+
+                await _context.SaveChangesAsync();
 
                 await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [Accounts] OFF");
 

@@ -7,12 +7,12 @@ public class MeterReadingItems : EndpointGroupBase
 {
     public override void Map(RouteGroupBuilder groupBuilder)
     {
-        groupBuilder.MapPost(CreateMeterReadingItems, "/meter-reading-uploads")/*.RequireAuthorization()*/;
+        groupBuilder.MapPost(CreateMeterReadingItems, "/meter-reading-uploads").DisableAntiforgery()/*.RequireAuthorization()*/;
     }
 
-    public async Task<Results<BadRequest, Ok<UploadResult>>> CreateMeterReadingItems(ISender sender, IFormFile file)
+    public async Task<Ok<UploadResult>> CreateMeterReadingItems(ISender sender, IFormFile file)
     {
-        if (file == null || file.Length == 0) return TypedResults.BadRequest();
+        //if (file == null || file.Length == 0) return TypedResults.BadRequest();
 
 
         using var memoryStream = new MemoryStream();
