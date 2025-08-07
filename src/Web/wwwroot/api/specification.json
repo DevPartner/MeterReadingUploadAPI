@@ -77,9 +77,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "lineContent": {
-            "type": "string"
-          },
           "errorMessage": {
             "type": "string"
           }

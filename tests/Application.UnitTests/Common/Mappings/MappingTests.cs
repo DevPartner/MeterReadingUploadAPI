@@ -1,6 +1,9 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using AutoMapper;
 using MeterReadingUploadAPI.Application.Common.Interfaces;
+using MeterReadingUploadAPI.Application.MeterReadingItems.Commands;
+using MeterReadingUploadAPI.Domain.Entities;
 using NUnit.Framework;
 
 namespace MeterReadingUploadAPI.Application.UnitTests.Common.Mappings;
@@ -12,7 +15,7 @@ public class MappingTests
 
     public MappingTests()
     {
-        _configuration = new MapperConfiguration(config => 
+        _configuration = new MapperConfiguration(config =>
             config.AddMaps(Assembly.GetAssembly(typeof(IApplicationDbContext))));
 
         _mapper = _configuration.CreateMapper();
@@ -24,9 +27,8 @@ public class MappingTests
         _configuration.AssertConfigurationIsValid();
     }
 
-    /*Example:
     [Test]
-    [TestCase(typeof(TodoList), typeof(TodoListDto))]
+    [TestCase(typeof(MeterReadingItemDto), typeof(MeterReadingItem))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);
@@ -41,5 +43,5 @@ public class MappingTests
 
         // Type without parameterless constructor
         return RuntimeHelpers.GetUninitializedObject(type);
-    }*/
+    }
 }

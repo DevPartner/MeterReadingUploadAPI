@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h3 class="mb-3">Upload Meter Readings</h3>
+
+    <div class="mb-3">
+      <label for="fileUpload" class="form-label">Select file</label>
+      <input type="file" id="fileUpload" class="form-control" (change)="onFileSelected($event)" />
+    </div>
+
+    <button class="btn btn-primary" (click)="uploadFile()">Upload</button>
+
+    <div *ngIf="error" class="alert alert-danger mt-3">
+      {{ error }}
+    </div>
+
+    <div *ngIf="response" class="mt-4">
+      <h5>Response</h5>
+      <pre class="bg-light p-3 border rounded">{{ response | json }}</pre>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,6 @@ public class UploadResult
 public class UploadError
 {
     public int LineNumber { get; set; }
-    public required string LineContent { get; set; }
+    //public required string LineContent { get; set; }
     public required string ErrorMessage { get; set; }
 }

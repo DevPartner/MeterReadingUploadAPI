@@ -144,7 +144,6 @@ export interface IUploadResult {
 
 export class UploadError implements IUploadError {
     lineNumber?: number;
-    lineContent?: string;
     errorMessage?: string;
 
     constructor(data?: IUploadError) {
@@ -159,7 +158,6 @@ export class UploadError implements IUploadError {
     init(_data?: any) {
         if (_data) {
             this.lineNumber = _data["lineNumber"];
-            this.lineContent = _data["lineContent"];
             this.errorMessage = _data["errorMessage"];
         }
     }
@@ -174,7 +172,6 @@ export class UploadError implements IUploadError {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["lineNumber"] = this.lineNumber;
-        data["lineContent"] = this.lineContent;
         data["errorMessage"] = this.errorMessage;
         return data;
     }
@@ -182,7 +179,6 @@ export class UploadError implements IUploadError {
 
 export interface IUploadError {
     lineNumber?: number;
-    lineContent?: string;
     errorMessage?: string;
 }
 
