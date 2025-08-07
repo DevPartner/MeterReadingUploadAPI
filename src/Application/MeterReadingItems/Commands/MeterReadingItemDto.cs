@@ -12,7 +12,13 @@ public class MeterReadingItemDto
     {
         public Mapping()
         {
-            CreateMap<MeterReadingItemDto, MeterReadingItem>();
+            CreateMap<MeterReadingItemDto, MeterReadingItem>().ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Account, opt => opt.Ignore()) 
+                .ForMember(dest => dest.Created, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
+                .ForMember(dest => dest.LastModified, opt => opt.Ignore())
+                .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore())
+                .ForMember(dest => dest.DomainEvents, opt => opt.Ignore());
         }
     }
 }
