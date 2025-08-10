@@ -22,21 +22,20 @@ Navigate to <https://localhost:5001>. The application will automatically reload 
 ### ✅ Done
 
 - [x] Initial Commit
-
----
-
-### 🟨 In Progress
-
 - [X] DB Duplicate check in for CreateMeterReadingItemsCommand
 - [x] DTO/FluentValidator for DTO
-- [ ] Tests CreateMeterReadingItemsCommandTests
 - [x] Angular component
 - [x] SOLID for CreateMeterReadingItemsCommand
 
 ---
 
-### ⬜ To Do
+### 🟨 In Progress
 
+- [ ] Tests CreateMeterReadingItemsCommandTests
+
+---
+
+### ⬜ To Do
 
 ## Test
 
